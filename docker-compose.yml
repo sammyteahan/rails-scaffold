@@ -1,0 +1,27 @@
+version: '2'
+services:
+  db:
+    image: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: toor
+      MYSQL_USER: root
+      MYSQL_PASSWORD: toor
+      MYSQL_DATABASE: dockerrails
+    ports:
+      - "13306:3306" # map ports correctly from host machine to db container
+  redis:
+    image: redis
+    ports:
+      - "6379:6379"
+  web:
+    build: .
+    command: bundle exec rails s -p 3000 -b '0.0.0.0'
+    environment:
+      - RAILS_ENV=development
+    volumes:
+      - .:/code
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+      - redis

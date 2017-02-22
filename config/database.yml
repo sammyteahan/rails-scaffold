@@ -1,0 +1,16 @@
+default: &default
+  adapter: mysql2
+  pool: 5
+  timeout: 5000
+  username: root
+  password: toor
+  host: db # Rails expects localhost, so point it at db container
+development:
+  <<: *default
+  database: dockerrails
+test:
+  <<: *default
+  database: dockerrails_test
+production:
+  <<: *default
+  database: dockerrails_prod
