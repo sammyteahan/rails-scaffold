@@ -1,24 +1,26 @@
-# README
+# Rails Scaffold
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+To get started with Docker, [download Docker for Mac](https://docs.docker.com/docker-for-mac/).
 
-Things you may want to cover:
+![Docker](./images/docker_for_mac.png)
 
-* Ruby version
+Docker for mac will give you three things out of the box:
 
-* System dependencies
+![installation](./images/installation_1.png)
 
-* Configuration
+* `docker-machine` is used to create virtual machines. You can pass in a flag to create them in virtualbox, but this is largely unused (at least I think) now that the hyperkit vm is used.
+* `docker-compose` is the utility that is used to create and run containers with multiple running services (e.g. redis, db, node, celery).
 
-* Database creation
+###### Images and containers
 
-* Database initialization
+* `images` are read only templates used to create containers. these are created with the build command. and are stored in a docker registry (docker hub). If an image was a class, then a container is an instance of a class.
+	* `docker images`: show all images
+* `containers` are created from images and contain all the binaries and dependencies necessary.
+	* `docker ps`: show running containers
+	* `docker ps -a`: show all containers
 
-* How to run the test suite
+![images_and_containers](./images/images_and_containers.png)
 
-* Services (job queues, cache servers, search engines, etc.)
+###### Container management/usage
 
-* Deployment instructions
-
-* ...
+![](./images/connecting.png)
