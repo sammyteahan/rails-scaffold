@@ -23,4 +23,54 @@ Docker for mac will give you three things out of the box:
 
 ###### Container management/usage
 
-![](./images/connecting.png)
+Open up a bash shell in a running container:
+
+```
+docker exec -it container_name bash
+```
+
+For example
+
+![bash_shell](./images/connecting.png)
+
+Start container(s) in detached mode:
+
+```
+docker compose up -d
+```
+
+Connect to a detached container:
+
+```
+docker attach container_name
+```
+
+Stop all containers:
+
+```
+docker stop $(docker ps -a -q)
+```
+
+Remove container by name:
+
+```
+docker rm container_name
+```
+
+Remove all containers:
+
+```
+docker rm $(docker ps -a -q)
+```
+Remove an image by id:
+
+```
+docker rmi image_id
+```
+
+Remove all images:
+
+```
+docker rmi $(docker images -q)
+
+```
